@@ -44,4 +44,4 @@ local.properties
 target/
 
 # Logs
-.log
+*.log
