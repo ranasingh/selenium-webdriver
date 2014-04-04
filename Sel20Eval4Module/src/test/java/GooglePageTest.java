@@ -2,21 +2,18 @@ package singh.selenium.api;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.phantomjs.PhantomJSDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 @RunWith(JUnit4.class)
@@ -49,7 +46,7 @@ public class GooglePageTest {
     }
 
     @Test
-    public void rapidEngagePresent() throws Exception {
+    public void googleOnlyHasOneFormOnPage() throws Exception {
         List<WebElement> logoSub = webDriver.findElements(By.tagName("form"));
         assertTrue("Assert google only has one form on page", logoSub.size() == 1);
     }
