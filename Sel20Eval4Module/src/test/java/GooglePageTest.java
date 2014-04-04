@@ -47,7 +47,7 @@ public class GooglePageTest {
 
     @Test
     public void googleOnlyHasOneFormOnPage() throws Exception {
-        List<WebElement> logoSub = webDriver.findElements(By.tagName("form"));
-        assertTrue("Assert google only has one form on page", logoSub.size() == 1);
+        List<WebElement> formElement = webDriver.findElements(By.tagName("form"));
+        assertTrue("Assert google only has one form on page", formElement.size() == 1);
     }
 }
