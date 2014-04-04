@@ -2,6 +2,7 @@ package singh.selenium.api;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
@@ -12,18 +13,20 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.phantomjs.PhantomJSDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 @RunWith(JUnit4.class)
-public class MarkedseksperimentHomePageTest {
+public class GooglePageTest {
 
     private static WebDriver webDriver;
     private static long start = 0;
     private static long end = 0;
     private static DesiredCapabilities desiredCapabilities;
-    private static String baseUrl = "https://markedseksperiment.app.iterate.no";
+    private static String baseUrl = "https://www.google.no";
 
     @BeforeClass
     public static void before() {
@@ -46,13 +49,8 @@ public class MarkedseksperimentHomePageTest {
     }
 
     @Test
-    public void titleOnPage() {
-        assertEquals("Markedseksperiment", webDriver.getTitle());
-    }
-
-    @Test
     public void rapidEngagePresent() throws Exception {
-        WebElement rapidEngage = webDriver.findElement(By.id("ss_feedback"));
-        assertEquals("Assert rapid engage div present", rapidEngage.getTagName(), "div");
+        List<WebElement> logoSub = webDriver.findElements(By.tagName("form"));
+        assertTrue("Assert google only has one form on page", logoSub.size() == 1);
     }
 }
